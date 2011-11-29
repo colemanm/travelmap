@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0;" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <title>2011 travel map | @colemanm</title>
+        <script type="text/javascript" src="modestmaps.js"></script>
+        <script type="text/javascript" src="modestmaps-tms.js"></script>
+        <link rel="stylesheet" href="http://code.jquery.com/mobile/1.0b3/jquery.mobile-1.0b3.min.css" />
+        <script src="http://code.jquery.com/jquery-1.6.2.min.js"></script>
+        <script src="http://code.jquery.com/mobile/1.0b3/jquery.mobile-1.0b3.min.js"></script>
+
+        <script type="text/javascript">
+    
+            var Catalog = {
+              map: null,
+              
+              init: function() {
+                var tileSet = 'travelmap';
+
+                var provider = new sni.mm.connector({
+                  tiles: [
+                    'http://maps.spatialnetworks.com/1.0.0/' + tileSet + '/{z}/{x}/{y}.png',
+                  ],
+                  minzoom: 1,
+                  maxzoom: 9
+                });
+                
+                Catalog.map = new com.modestmaps.Map('map',
+                  provider,
+                  null, [
+                    new com.modestmaps.TouchHandler(),
+                    new com.modestmaps.MouseHandler()
+                  ]);
+                  
+                Catalog.map.setCenterZoom(new com.modestmaps.Location(30, -80), 4);
+                
+                initMarkers(Catalog.map);
+              }
+            }
+            
+            $(document).ready(Catalog.init);
+        </script>
+        <style type="text/css">
+            html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+                border: 0;
+            }
+            #map {
+              position: absolute;
+              left: 0;
+              top: 0;
+              padding: 0;
+              margin: 0;
+              width: 100%;
+              height: 100%;
+            }
+            .map-tile {
+              opacity:0;
+            }
+            .map-tile-loaded {
+              -webkit-animation-name: 'fade-in';
+              -webkit-animation-timing-function: ease-in;
+              -webkit-animation-duration: 0.2s;
+            }
+            @-webkit-keyframes fade-in {
+              from {
+                opacity: 0;
+              }
+              to {
+                opacity: 1;
+              }
+            }
+            #header {
+              background: transparent url(sni-header.png) repeat-x;
+              position: absolute;
+              left: 0;
+              top: 0;
+              padding: 0;
+              margin: 0;
+              width: 100%;
+              height: 96px;
+              z-index: 1;
+              text-align: center;
+            }
+            
+            .logo {
+              position: relative;
+              top: 15px;
+            }
+            
+            #callout {
+              position:absolute;
+              left: 100px;
+              top: 200px;
+              background: transparent url(callout-bg.png) repeat-x;
+              background-position: center bottom;
+              opacity: 0.0;
+              -moz-border-radius: 8px;
+              border-radius: 8px;
+              z-index: 999;
+              color: #111;
+              padding: 20px;
+              font-family: Helvetica, Sans-Serif;
+              text-shadow: #aaa 0px -1px 0px;
+              width: 300px;
+              box-shadow:0px 0px 15px rgba(0, 0, 0, 0.8);
+            }
+            
+            #callout-arrow {
+              background: transparent url(callout-arrow.png) no-repeat;
+              position: absolute;
+              bottom: -20px;
+              left: 160px;
+              width: 20px;
+              height: 20px;
+              overflow: hidden;
+            }
+            
+            #callout-title {
+              margin: 0;
+              padding: 0;
+            }
+            
+            #callout ul {
+              list-style-type: none;
+              margin: 0;
+              padding: 0;
+              margin-top: 6px;
+            }
+            
+            #callout ul li {
+              padding: 2px 0;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="header"><img class="logo" src="sni-logo.png" alt="Spatial Networks, Inc."/></div>
+        <div id="map"></div>
+    </body>
+</html>
+
