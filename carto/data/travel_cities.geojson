@@ -37,7 +37,7 @@
 ,
 { "type": "Feature", "id": 18, "properties": { "city": "San Antonio", "state": "TX", "lon": -98.495141, "lat": 29.424600 }, "geometry": { "type": "Point", "coordinates": [ -98.495141, 29.424600 ] } }
 ,
-{ "type": "Feature", "id": 19, "properties": { "city": "San Diego", "state": "CA", "lon": -117.227145, "lat": 32.893180 }, "geometry": { "type": "Point", "coordinates": [ -117.227145, 32.893180 ] } }
+{ "type": "Feature", "id": 19, "properties": { "city": "San Diego", "state": "CA", "lon": -116.991205, "lat": 32.895502 }, "geometry": { "type": "Point", "coordinates": [ -116.991205, 32.895502 ] } }
 ,
 { "type": "Feature", "id": 20, "properties": { "city": "Seattle", "state": "WA", "lon": -122.328881, "lat": 47.599296 }, "geometry": { "type": "Point", "coordinates": [ -122.328881, 47.599296 ] } }
 ,
