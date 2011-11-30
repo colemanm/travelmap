@@ -4,14 +4,20 @@ html, body {
     margin: 0;
     padding: 0;
     border: 0;
-	font-family: 'Inconsolata', sans-serif;
+	font-family: 'Courier New';
 }
 body {
 	background: url(../images/grey-sandstone-dark.png) repeat;
 }
+a:link, a:visited {
+	color: #fff;
+}
+a:hover {
+	color: #aaa;
+}
 #map {
   padding: 0;
-  margin: 20px auto 0 auto;
+  margin: 5px auto 0 auto;
   width: 950px;
   height: 550px;
   border: 5px solid black;
@@ -33,8 +39,21 @@ body {
   }
 }
 #header {
-  font-family: 'Inconsolata', sans-serif;
+  font-family: 'Courier New';
   color: #bbb;
   width: 100%;
   text-align: center;
+}
+
+#meta {
+  font-size: 12px;
+  text-align: center;
+  color: #ddd;
+}
+
+.orange { color: #ff7e3d; }
+.blue { color: #0af; }
+.shadow {
+  -moz-box-shadow: 0 0 10px 3px #111;
+  -webkit-box-shadow: 0 0 10px 3px #111;
 }

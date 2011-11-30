@@ -7,9 +7,10 @@
         <title>2011 travel map | @colemanm</title>
         <script type="text/javascript" src="js/modestmaps.js"></script>
 		<script type="text/javascript" src="js/modestmaps-tms.js"></script>
+		<script type="text/javascript" src="js/wax.mm.js"></script>
 		<link href='http://fonts.googleapis.com/css?family=Inconsolata' rel='stylesheet' type='text/css' />
 		<link rel="stylesheet" type="text/css" href="css/style.css" />
-		<!--        <link rel="stylesheet" href="http://code.jquery.com/mobile/1.0b3/jquery.mobile-1.0b3.min.css" />-->
+		<link rel="stylesheet" type="text/css" href="css/controls.css" />
 		<script src="http://code.jquery.com/jquery-1.6.2.min.js"></script>
         <script type="text/javascript">
     
@@ -33,9 +34,11 @@
                     new com.modestmaps.TouchHandler(),
                     new com.modestmaps.MouseHandler()
                   ]);
-                  
+				var zoomer = wax.mm.zoomer(Catalog.map);
+				zoomer.appendTo('map');
                 Catalog.map.setCenterZoom(new com.modestmaps.Location(38, -95.5), 4);
               }
+
             }
             
             $(document).ready(Catalog.init);
@@ -43,11 +46,13 @@
     </head>
 	<body>
 		<div id="header">
-			<h1>traveling in 2011 :: @colemanm</h1>
+			<h1>TRAVELS OF 2011 : <a href="http://twitter.com/colemanm">@colemanm</a></h1>
+			<p>Places I ventured during 2011. Flights are represented in <span class="blue">blue</span>, drives in <span class="orange">orange</span>.</p>
+			<p>(primarily an experiment in generating <a href="http://en.wikipedia.org/wiki/Great_circle">great circle</a> routes.)</p>
 		</div>
-		<div id="map"></div>
+		<div id="map" class="shadow"></div>
 		<div id="meta">
-
+			<p>Built with <a href="http://mapbox.com/tilemill/">TileMill</a>, <a href="http://mapbox.com/wax/">wax</a>, <a href="https://github.com/mapbox/tilestream">TileStream</a>, <a href="https://github.com/springmeyer/arc.js">arc.js</a>, and <a href="http://www.qgis.org/">QGIS</a>.<p>
 		</div>
     </body>
 </html>
