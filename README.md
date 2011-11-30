@@ -8,5 +8,7 @@ I generated a CSV file of visited cities, which is used to draw the point geomet
 
 TileMill was used to build the map -- showing blue lines for flights, orange lines for drives.
 
+![travelmap](http://f.cl.ly/items/1h0O3V091C211p0J3w2f/Screen%20Shot%202011-11-30%20at%206.47.06%20PM.png)
+
 ## The tools
 The map is hosted on my own [TileStream](https://github.com/mapbox/tilestream) server, and displayed on the web using [Wax](http://mapbox.com/wax/). [QGIS](http://www.qgis.org/) was used for some data editing and processing, but not much.
