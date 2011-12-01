@@ -46,6 +46,11 @@ a:hover {
   text-align: center;
 }
 
+.subheading {
+  font-size: 14px;
+  color: #666;
+}
+
 #meta {
   font-size: 12px;
   text-align: center;
