@@ -12,35 +12,18 @@
 		<link rel="stylesheet" type="text/css" href="css/controls.css" />
 		<script src="http://code.jquery.com/jquery-1.6.2.min.js"></script>
         <script type="text/javascript">
-    
-            var Catalog = {
-              map: null,
+          var mm = com.modestmaps;
+          var url = 'http://a.tiles.mapbox.com/v3/colemanm.travelmap.jsonp';
+          
+          wax.tilejson(url, function(tilejson) {
+            var m = new mm.Map('map',
+              new wax.mm.connector(tilejson),
+              new mm.Point(950,550));
               
-              init: function() {
-                var tileSet = 'travelmap';
-
-                var provider = new sni.mm.connector({
-                  tiles: [
-                    'http://maps.spatialnetworks.com/1.0.0/' + tileSet + '/{z}/{x}/{y}.png',
-                  ],
-                  minzoom: 3,
-                  maxzoom: 7
-                });
-                
-                Catalog.map = new com.modestmaps.Map('map',
-                  provider,
-                  null, [
-                    new com.modestmaps.TouchHandler(),
-                    new com.modestmaps.MouseHandler()
-                  ]);
-				var zoomer = wax.mm.zoomer(Catalog.map);
-				zoomer.appendTo('map');
-                Catalog.map.setCenterZoom(new com.modestmaps.Location(38, -95.5), 4);
-              }
-
-            }
-            
-            $(document).ready(Catalog.init);
+            m.setCenterZoom(new mm.Location(38, -95.5), 4);
+            wax.mm.zoomer(m).appendTo(m.parent);
+            wax.mm.interaction(m, tilejson);
+          })
 		</script> 
     </head>
 	<body>
@@ -51,7 +34,7 @@
 		</div>
 		<div id="map" class="shadow"></div>
 		<div id="meta">
-			<p>Built with <a href="http://mapbox.com/tilemill/">TileMill</a>, <a href="http://mapbox.com/wax/">wax</a>, <a href="https://github.com/mapbox/tilestream">TileStream</a>, <a href="https://github.com/springmeyer/arc.js">arc.js</a>, and <a href="http://www.qgis.org/">QGIS</a>. Read more on <a href="https://github.com/colemanm/travelmap/">GitHub</a>.<p>
+			<p>Built with <a href="http://mapbox.com/tilemill/">TileMill</a>, <a href="http://mapbox.com/wax/">wax</a>, <a href="http://mapbox.com/">MapBox Hosting</a>, <a href="https://github.com/springmeyer/arc.js">arc.js</a>, and <a href="http://www.qgis.org/">QGIS</a>. Read more on <a href="https://github.com/colemanm/travelmap/">GitHub</a>.<p>
 		</div>
     </body>
 </html>
